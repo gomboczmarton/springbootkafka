@@ -1,26 +1,15 @@
-package biz.gombocz.springbootkafka;
+package biz.gombocz.springbootkafka.consumers;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class KafkaConsumer2 {
-
+public class KafkaConsumer3 {
     /*
     @KafkaListener(topics = "mytopic", groupId = "groupId")
     public void listen(String message) {
         System.out.println("Received Message in group foo: " + message);
     }
     */
-
-    /**
-     * Multiple listeners can be implemented for a topic, each with a different group Id. Furthermore, one consumer can listen for messages from various topics:
-     */
-    /*
-    @KafkaListener(topics = "topic1, topic2", groupId = "groupId")
-    public void listenMultipleTopics(String message) {
-        System.out.println("Received Message in group groupId: " + message);
-    }
-     */
 
 
     /**

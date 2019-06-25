@@ -1,4 +1,4 @@
-package biz.gombocz.springbootkafka;
+package biz.gombocz.springbootkafka.config;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;

@@ -1,4 +1,4 @@
-package biz.gombocz.springbootkafka;
+package biz.gombocz.springbootkafka.consumers;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
