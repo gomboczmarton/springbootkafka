@@ -49,7 +49,6 @@ public class KafkaConsumerConfig {
      * Listeners can be configured to consume specific types of messages by adding a custom filter.
      * This can be done by setting a RecordFilterStrategy to the KafkaListenerContainerFactory:
      */
-    /*
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, String>
     filterKafkaListenerContainerFactory() {
@@ -61,5 +60,4 @@ public class KafkaConsumerConfig {
                 record -> record.value().contains("World"));
         return factory;
     }
-    */
 }

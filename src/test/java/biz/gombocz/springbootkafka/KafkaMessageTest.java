@@ -34,4 +34,13 @@ public class KafkaMessageTest {
         producer.sendMessage("multiple_wakacuka", customTopic1);
         producer.sendMessage("multiple_wakacuka", customTopic2);
     }
+
+    /**
+     * The expected working of this filter is just the opposite: the filter condition when true, then the message is discarded
+     */
+    @Test
+    public void testMessageFilteredSend() {
+        producer.sendMessage("wakacuka_thousand", mytopic); // check the log messages - this is LOGGED
+        producer.sendMessage("wakacuka_World", mytopic);    // check the log messages - this is NOT logged with the given text in the consumer
+    }
 }
