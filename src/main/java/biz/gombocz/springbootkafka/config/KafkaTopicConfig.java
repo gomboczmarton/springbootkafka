@@ -21,6 +21,11 @@ public class KafkaTopicConfig {
     @Value(value = "${custom.topics.two}")
     public String customTopic2;
 
+    @Value(value = "${message.custom.topic.name}")
+    public String myCustomTopic;
+
+
+
     @Bean
     public KafkaAdmin kafkaAdmin() {
         Map<String, Object> configs = new HashMap<>();
@@ -40,5 +45,10 @@ public class KafkaTopicConfig {
     @Bean
     public NewTopic topic2() {
         return new NewTopic(customTopic2, 1, (short) 1);
+    }
+
+    @Bean
+    public NewTopic topicCustom() {
+        return new NewTopic(myCustomTopic, 1, (short) 1);
     }
 }

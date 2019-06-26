@@ -1,6 +1,8 @@
 package biz.gombocz.springbootkafka;
 
 import biz.gombocz.springbootkafka.consumers.KafkaConsumer1;
+import biz.gombocz.springbootkafka.custommessage.Greeting;
+import biz.gombocz.springbootkafka.producer.KafkaCustomProducer;
 import biz.gombocz.springbootkafka.producer.KafkaProducer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,9 +20,13 @@ public class KafkaMessageTest {
     public String customTopic2;
     @Value(value = "${message.topic.name}")
     public String mytopic;
+    @Value(value = "${message.custom.topic.name}")
+    public String myCustomTopic;
 
     @Autowired
     private KafkaProducer producer;
+    @Autowired
+    private KafkaCustomProducer customProducer;
     @Autowired
     private KafkaConsumer1 consumer;
 
@@ -42,5 +48,10 @@ public class KafkaMessageTest {
     public void testMessageFilteredSend() {
         producer.sendMessage("wakacuka_thousand", mytopic); // check the log messages - this is LOGGED
         producer.sendMessage("wakacuka_World", mytopic);    // check the log messages - this is NOT logged with the given text in the consumer
+    }
+
+    @Test
+    public void testCustomMessageSend() {
+        customProducer.sendMessage(new Greeting("Hello", "World"), myCustomTopic);
     }
 }
